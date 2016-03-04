@@ -68,19 +68,23 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var jsMGL = jsMGL || {};
+	// var jsMGL ={};
 	
-	jsMGL.BVHCharacter = __webpack_require__(1);
-	jsMGL.C3DCharacter = __webpack_require__(5);
-
+	// jsMGL.BVHCharacter = require('./bvhCharacter.js');
+	// jsMGL.C3DCharacter = require('./c3dCharacter.js');
+	// var ddd = 'sdsds';
+	// module.exports = [ddd, require('./c3dCharacter.js')];
+	
+	BVHCharacter = __webpack_require__(1);
+	C3DCharacter = __webpack_require__(5);
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2);
+	var parsers = __webpack_require__(2);
 	
-	BVHCharacter = BVHCharacter || {};
+	var BVHCharacter = BVHCharacter || {};
 	
 	
 	BVHCharacter = function(n, jm, bm, jg, bg){
@@ -129,7 +133,7 @@
 		this.loadFromURL = function(url, callback) {
 			self.log("Loading the mocap file ...");
 			//Pace.start();
-			reader = new BVHReader(this.name+"READER");
+			reader = new parsers.bvhParser(this.name+"READER");
 			this.url = url;
 			reader.load(url, self.createSkel, self.fillFrames);
 		
@@ -445,10 +449,10 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports =  {
+	module.exports ={
 	    bvhParser: __webpack_require__(3),
 	    bvhStreamParser: __webpack_require__(4)
-	}
+	};
 
 /***/ },
 /* 3 */
@@ -1170,7 +1174,7 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	C3DCharacter = C3DCharacter || {};
+	var C3DCharacter = C3DCharacter || {};
 	
 	C3DCharacter = function(n, jm, jg){
 		this.name = n;
