@@ -1,0 +1,3 @@
+[submodule "players"]
+	path = players
+	url = https://github.com/omimo/WebGLMocapPlayer
