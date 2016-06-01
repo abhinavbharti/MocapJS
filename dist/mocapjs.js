@@ -307,20 +307,28 @@
 	                else                                
 	                    bgeometry.translate(0, h / 2,  0);
 	                    
-	                
-	                
-	                                    
+	                               
 	                dx = Math.atan2(childJointMesh.offsetVec.z,childJointMesh.offsetVec.y);                  
-	                dy = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.z);
+	                dy = Math.atan2(childJointMesh.offsetVec.z,childJointMesh.offsetVec.x);
 	                dz = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.y);   
-	                                                      
-	                
-	                bgeometry.rotateX(-dx);
-	                //  bgeometry.rotateY(dy);                 
-	                bgeometry.rotateZ(-dz);                
-	                
-	                
-	                
+	                 
+	                if (self.name == "Zari") {
+	                    console.log (childJointMesh.parent.name + " > " + childJointMesh.name);
+	                    console.log(dx);
+	                    console.log(dx);
+	                    console.log(dx);
+	                }                                      
+	                           
+	                if ( Math.abs(dx-3.141567607791768) < 0.0001 ) {
+	                    bgeometry.rotateX(-dx);                                    
+	                    bgeometry.rotateY(dy);                                                     
+	                    bgeometry.rotateZ(-dz);
+	                } else {
+	                    bgeometry.rotateX(dx);                                    
+	                    bgeometry.rotateY(-dy);                                                     
+	                    bgeometry.rotateZ(-dz);
+	                }
+	                                               
 	                                              
 	                //END - Universal
 	                
