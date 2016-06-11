@@ -309,26 +309,48 @@
 	                    
 	                               
 	                dx = Math.atan2(childJointMesh.offsetVec.z,childJointMesh.offsetVec.y);                  
-	                dy = Math.atan2(childJointMesh.offsetVec.z,childJointMesh.offsetVec.x);
+	                dy = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.z);
 	                dz = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.y);   
 	                 
-	                if (self.name == "Zari") {
+	                if (self.name == "Vali") {
 	                    console.log (childJointMesh.parent.name + " > " + childJointMesh.name);
 	                    console.log(dx);
-	                    console.log(dx);
-	                    console.log(dx);
+	                    console.log(dy);
+	                    console.log(dz);
 	                }                                      
 	                           
-	                if ( Math.abs(dx-3.141567607791768) < 0.0001 ) {
-	                    bgeometry.rotateX(-dx);                                    
-	                    bgeometry.rotateY(dy);                                                     
-	                    bgeometry.rotateZ(-dz);
+	                // if ( Math.abs(dx-3.141567607791768) < 0.0001 ) {
+	                //     self.log(childJointMesh.parent.name + " haha");
+	                //     bgeometry.rotateX(-dx);                                    
+	                //     bgeometry.rotateY(dy);    
+	                //     bgeometry.rotateZ(-dz);                                                 
+	
+	                // } else {
+	                //     self.log(childJointMesh.parent.name + " hoho");
+	                //     bgeometry.rotateX(dx);                                    
+	                //     bgeometry.rotateY(-dy);                                                     
+	                //     bgeometry.rotateZ(-dz);
+	                // }
+	
+	                if ( Math.abs(dx-3.141567607791768) < 0.0001 ) {                
+	                    bgeometry.rotateX(-dx);                                                                                   
 	                } else {
 	                    bgeometry.rotateX(dx);                                    
-	                    bgeometry.rotateY(-dy);                                                     
-	                    bgeometry.rotateZ(-dz);
 	                }
-	                                               
+	
+	                if ( Math.abs(dy-3.141567607791768) < 0.0001 ) {                
+	                    bgeometry.rotateY(-dy);                                                                                   
+	                } else {
+	                    bgeometry.rotateY(dy);                                    
+	                }
+	
+	                if ( Math.abs(dz-3.141567607791768) < 0.0001 ) {                
+	                    bgeometry.rotateZ(dz);                                                                                   
+	                } else {
+	                    bgeometry.rotateZ(-dz);                                    
+	                }
+	                    
+	
 	                                              
 	                //END - Universal
 	                
