@@ -314,22 +314,35 @@
 	                dy = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.z);
 	                dz = Math.atan2(childJointMesh.offsetVec.x,childJointMesh.offsetVec.y);   
 	                 
-	                if (self.name == "Gholi") {
-	                    console.log (childJointMesh.parent.name + " > " + childJointMesh.name);
-	                    console.log(dx);
-	                    console.log(dy);
-	                    console.log(dz);
-	                    console.log(childJointMesh.offsetVec);
-	                }                                      
-	
+	                                                  
 	             
 	                // if (childJointMesh.offsetVec.z !== 0) bgeometry.rotateX(math.pi-(dx));
 	                // if (childJointMesh.offsetVec.x !== 0) bgeometry.rotateY(math.pi-(dy));
 	                // if (childJointMesh.offsetVec.y !== 0) bgeometry.rotateZ(math.pi-(dz));
 	
-	                bgeometry.rotateX( (math.pi-(dx)));
-	                bgeometry.rotateY(-(math.pi-(dy)));
-	                bgeometry.rotateZ(-(math.pi-(dz)));
+	                osx = math.sign(childJointMesh.offsetVec.x) === 0 ? 0: math.sign(childJointMesh.offsetVec.x);
+	                osy = math.sign(childJointMesh.offsetVec.y) === 0 ? 1: math.sign(childJointMesh.offsetVec.y);
+	                osz = math.sign(childJointMesh.offsetVec.z) === 0 ? 0: math.sign(childJointMesh.offsetVec.z);
+	
+	                osxy = math.sign(childJointMesh.offsetVec.x) === 0 ? 0: math.sign(childJointMesh.offsetVec.y);
+	                osxz = math.sign(childJointMesh.offsetVec.y) === 0 ? 1: math.sign(childJointMesh.offsetVec.z);
+	                oszy = math.sign(childJointMesh.offsetVec.z) === 0 ? 0: math.sign(childJointMesh.offsetVec.y);
+	
+	                bgeometry.rotateX(-oszy * (math.pi-(dx)));
+	                bgeometry.rotateY(-osxz * (math.pi-(dy)));
+	                bgeometry.rotateZ(-osxy * (math.pi-(dz)));
+	
+	                if (self.name == "Mamali") {
+	                    console.log (childJointMesh.parent.name + " > " + childJointMesh.name);
+	                    // console.log(dx);
+	                    // console.log(dy);
+	                    // console.log(dz);
+	                    // console.log(childJointMesh.offsetVec);
+	                    console.log(-oszy * (math.pi-(dx)));
+	                    console.log(-osxz * (math.pi-(dy)));
+	                    console.log(-osxy * (math.pi-(dz))); 
+	                }    
+	
 	
 	                // bgeometry.rotateX(Math.sign(childJointMesh.offsetVec.z) * math.abs(dx));
 	                // bgeometry.rotateY(Math.sign(childJointMesh.offsetVec.x) * math.abs(dy));
