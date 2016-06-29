@@ -1294,4 +1294,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=jsMocapGL.js.map
+//# sourceMappingURL=MocapJS.js.map

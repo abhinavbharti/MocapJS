@@ -8,7 +8,7 @@ var plugins =  [
 minimize && plugins.push(new webpack.optimize.UglifyJsPlugin());
 
 module.exports = {
-    entry: {jsMocapGL: "./lib/jsMocapGL.js"},
+    entry: {MocapJS: "./lib/MocapJS.js"},
     devtool: "source-map",
     output: {
         path: __dirname+"/dist/",
